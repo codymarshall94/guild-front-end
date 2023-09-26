@@ -23,18 +23,18 @@ const resources = [
 
 export default function Resources() {
   return (
-    <section className="flex flex-col justify-center min-h-screen w-full">
+    <section className="flex flex-col justify-center items-center min-h-screen w-full">
       <h2 className="font-bold text-center text-2xl md:text-4xl pb-4">
         Resources
       </h2>
-      <div className="flex flex-row justify-center gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 max-w-screen-xl gap-4 p-4">
         {resources.map((resource) => (
           <div
             key={resource.id}
-            className="flex justify-center items-center h-[300px] w-[300px] shadow-[0px_0px_8px_0px__#00000030]"
+            className="flex justify-center items-center p-4 md:h-[250px] sm:h-[200px] lg:h-[300px] shadow-[0px_0px_8px_0px__#00000030]"
           >
             <h3
-              className={`text-2xl text-center font-bold bg-gradient-to-br ${resource.color} bg-clip-text text-transparent`}
+              className={`md:text-2xl text-center font-bold bg-gradient-to-br ${resource.color} bg-clip-text text-transparent`}
             >
               {resource.name}
             </h3>
