@@ -23,7 +23,7 @@ export default function Hero() {
         src="/homepage/hero-img.png"
         alt="hero background"
         fill
-        style={{ objectFit: "cover" }}
+        style={{ objectFit: "cover", objectPosition: "bottom" }}
       />
 
       <div className="flex flex-col justify-center relative z-40 w-full">
@@ -37,7 +37,7 @@ export default function Hero() {
           <h2 className="font-bold text-center text-2xl md:text-4xl">
             Join Us
           </h2>
-          <div className="flex flex-col md:flex-row gap-4">
+          <div className="flex flex-col md:flex-row gap-4 p-4">
             {join.map((item) => (
               <MeetupCard
                 title={item.name}
