@@ -15,7 +15,7 @@ const buttons = [
 
 export default function Involved() {
   return (
-    <section className="relative flex flex-col justify-center items-center min-h-min w-full p-24">
+    <section className="relative flex flex-col justify-center items-center min-h-min w-full p-24" id="involved">
       <Image
         src="/homepage/footer-background.png"
         alt="hero background"

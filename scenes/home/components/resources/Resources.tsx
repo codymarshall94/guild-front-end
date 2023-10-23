@@ -23,7 +23,10 @@ const resources = [
 
 export default function Resources() {
   return (
-    <section className="flex flex-col justify-center items-center min-h-screen w-full">
+    <section
+      className="flex flex-col justify-center items-center min-h-screen w-full"
+      id="resources"
+    >
       <h2 className="font-bold text-center text-2xl md:text-4xl pb-4">
         Resources
       </h2>
