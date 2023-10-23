@@ -4,7 +4,7 @@ export default function About() {
       className="flex justify-center items-center min-h-screen w-full"
       id="about"
     >
-      <div className="flex flex-col w-1/2 gap-12">
+      <div className="flex flex-col w-full md:w-1/2 gap-4 px-4">
         <h2 className="font-bold text-center text-2xl md:text-4xl">About</h2>
         <p className="text-center">
           The Front End Guild is group of developers who love to chat about all

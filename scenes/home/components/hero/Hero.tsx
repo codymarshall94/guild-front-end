@@ -18,7 +18,7 @@ const join = [
 
 export default function Hero() {
   return (
-    <section className="flex min-h-screen w-full p-24">
+    <section className="flex min-h-screen w-full">
       <Image
         src="/homepage/hero-img.png"
         alt="hero background"
@@ -26,19 +26,20 @@ export default function Hero() {
         style={{ objectFit: "cover", objectPosition: "bottom" }}
       />
 
-      <div className="flex flex-col justify-center relative z-40 w-full">
-        <h1 className="leading-20 text-4xl md:text-6xl bg-gradient-to-bl from-neutral-900 to-purple-700 bg-clip-text text-transparent">
+      <div className="flex flex-col justify-center relative z-40 w-full p-8 md:p-16">
+        <h1 className="leading-20 text-4xl md:text-6xl bg-gradient-to-bl from-neutral-900 to-purple-700 bg-clip-text text-transparent pt-8 md:pt-0">
           <span className="font-bold">Connect</span> with people,
-          <br></br>
+          <br />
           <span className="font-bold">grow</span> your skills,
-          <br></br> &amp; <span className="font-bold">Improve</span> the web.
+          <br />
+          &amp; <span className="font-bold">Improve</span> the web.
         </h1>
 
         <div className="flex flex-col justify-center items-center gap-4 pt-24">
           <h2 className="font-bold text-center text-2xl md:text-4xl">
             Join Us
           </h2>
-          <div className="flex flex-col lg:flex-row gap-4 p-4">
+          <div className="flex flex-col lg:flex-row justify-center gap-4 w-full max-w-screen-xl">
             {join.map(({ id, name, virtual, person }) => (
               <MeetupCard
                 title={name}

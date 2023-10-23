@@ -30,7 +30,7 @@ export default function Resources() {
       <h2 className="font-bold text-center text-2xl md:text-4xl pb-4">
         Resources
       </h2>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 max-w-screen-xl gap-4 p-4">
+      <div className="grid grid-cols-2 lg:grid-cols-4 max-w-screen-xl gap-4 p-4 h-[400px] w-full">
         {resources.map((resource) => (
           <div
             key={resource.id}
