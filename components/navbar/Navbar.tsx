@@ -1,29 +1,36 @@
 "use client";
 
+import React, { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import React, { useState } from "react";
 
-const links = [
+interface LinkItem {
+  id: number;
+  name: string;
+  path: string;
+}
+
+const links: LinkItem[] = [
   {
     id: 1,
     name: "About",
-    path: "about",
+    path: "#about",
   },
   {
     id: 2,
     name: "Resources",
-    path: "resources",
+    path: "#resources",
   },
   {
     id: 3,
     name: "Get Involved",
-    path: "involved",
+    path: "#involved",
   },
 ];
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const menuRef = useRef<HTMLDivElement | null>(null);
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
@@ -32,6 +39,24 @@ export default function Navbar() {
   const closeMenu = () => {
     setMenuOpen(false);
   };
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
+        closeMenu();
+      }
+    };
+
+    if (menuOpen) {
+      document.addEventListener("mousedown", handleClickOutside);
+    } else {
+      document.removeEventListener("mousedown", handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [menuOpen]);
 
   return (
     <div className="relative">
@@ -46,7 +71,11 @@ export default function Navbar() {
         {/* Desktop Menu */}
         <div className="hidden lg:flex space-x-6">
           {links.map((link) => (
-            <Link key={link.id} href={link.path} className="text-[#00000066]">
+            <Link
+              key={link.id}
+              href={link.path}
+              className="text-[#00000066] hover:text-blue-500 transition-colors duration-300"
+            >
               {link.name}
             </Link>
           ))}
@@ -84,6 +113,23 @@ export default function Navbar() {
       </nav>
 
       {/* Mobile Menu */}
+      <div
+        ref={menuRef}
+        className={`lg:hidden fixed top-0 inset-x-0 transform transition-transform ${
+          menuOpen ? "translate-y-0 shadow-lg" : "-translate-y-full"
+        } bg-white p-4 z-50`}
+      >
+        {links.map((link) => (
+          <Link
+            key={link.id}
+            href={link.path}
+            className="block py-2 text-[#00000066] hover:text-blue-500 transition-colors duration-300"
+            onClick={closeMenu}
+          >
+            {link.name}
+          </Link>
+        ))}
+      </div>
     </div>
   );
 }
