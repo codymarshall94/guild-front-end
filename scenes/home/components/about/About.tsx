@@ -1,6 +1,9 @@
 export default function About() {
   return (
-    <section className="flex justify-center w-full">
+    <section
+      className="flex justify-center items-center min-h-screen w-full"
+      id="about"
+    >
       <div className="flex flex-col w-1/2 gap-12">
         <h2 className="font-bold text-center text-2xl md:text-4xl">About</h2>
         <p className="text-center">
